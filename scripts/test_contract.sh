@@ -56,8 +56,14 @@ _assert_section "Papel da Tool de conhecimento" \
 _assert_section "Tool deve responder diretamente?" \
     "$(_post '{"message":"A tool deve responder diretamente ao usuário?"}')" "Tool de conhecimento"
 
+_assert_section "Onde colocar regra de negócio?" \
+    "$(_post '{"message":"Onde colocar regra de negócio, no endpoint ou no fluxo interno?"}')" "Endpoint de API"
+
 _assert_fallback "Pergunta fora de escopo" \
     "$(_post '{"message":"Qual o preço do bitcoin hoje?"}')"
+
+_assert_fallback "Como agir sem contexto suficiente?" \
+    "$(_post '{"message":"Como agir sem contexto suficiente?"}')"
 
 echo
 echo "Resumo: ${pass} pass, ${fail} fail"
