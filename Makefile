@@ -31,7 +31,10 @@ logs:
 
 test: test-unit test-contract
 
-test-unit:
+.venv/bin/pytest:
+	$(MAKE) install
+
+test-unit: .venv/bin/pytest
 	./.venv/bin/pytest -q
 
 test-contract:

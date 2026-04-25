@@ -276,6 +276,10 @@ make test-contract  # bash + curl, requer servidor UP — valida o gabarito
 make test           # ambos
 ```
 
+`make test-unit` se auto-bootstrapa: se a `.venv` ainda não existir (clone
+limpo), ele dispara `make install` antes de rodar o pytest. Não exige passo
+manual de `make install` antes.
+
 `tests/` cobre orquestrador, memory stores (Redis com cliente fake e
 in-process), KB tool e rotas FastAPI via `TestClient`.
 `scripts/test_contract.sh` valida ponta-a-ponta os casos da seção abaixo.
